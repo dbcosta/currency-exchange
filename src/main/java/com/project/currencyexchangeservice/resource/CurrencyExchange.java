@@ -1,22 +1,29 @@
 package com.project.currencyexchangeservice.resource;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Document("currency")
-@Data
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@AllArgsConstructor
+@Entity
+@NoArgsConstructor
+@Table(name="currency_exchange")
 public class CurrencyExchange {
 
-	@Id	
-	private String id;
-	private String fromCurrencyCode;
-	private String toCurrencyCode;
-	private BigDecimal exchangeRate;
-	private LocalDate lastEvaluationDate;
-		
+    @Id
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "from_name")
+    private String from;
+    @Column(name = "to_name")
+    private String to;
+    @Column(name = "conversion_multiple")
+    private BigDecimal conversionMultiple;
 }
