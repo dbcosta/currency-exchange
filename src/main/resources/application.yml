@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: currency-exchange-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/sample
+    username: root
+    password:
+server:
+  port: 8010
